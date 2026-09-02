@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conecta Segura Sênior - Dicas e Direitos Digitais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* REINICIALIZAÇÃO E VARIÁVEIS DE ESTILO */
+    :root {
+      --cor-fundo: #ffffff;
+      --cor-cartao: #ffffff;
+      --cor-texto: #000000;
+      --cor-texto-suave: #475569;
+      --cor-principal: #0208cc;
+      --cor-principal-destaque: #580002;
+      --cor-sucesso: #7d0404;
+      --cor-alerta: #7d0404;
+      --cor-alerta-fundo: #ffffff;
+      --cor-borda: #7d0404;
+      --tamanho-fonte-base: 19px;
+      --tamanho-fonte-titulo: 29px;
+      --tamanho-fonte-subtitulo: 23px;
+    }
+
+    /* MODO ALTO CONTRASTE */
+    body.alto-contraste {
+      --cor-fundo: #000000;
+      --cor-cartao: #121212;
+      --cor-texto: #ffff00;
+      --cor-texto-suave: #ffffff;
+      --cor-principal: #ffff00;
+      --cor-principal-destaque: #e6e600;
+      --cor-sucesso: #00ff00;
+      --cor-alerta: #f70707;
+      --cor-alerta-fundo: #2a0000;
+      --cor-borda: #ffff00;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.6;
+      padding-bottom: 50px;
+      transition: background-color 0.2s, color 0.2s;
+      font-size: var(--tamanho-fonte-base);
+    }
+
+    /* CABEÇALHO E FERRAMENTAS DE ACESSIBILIDADE */
+    header {
+      background-color: var(--cor-cartao);
+      border-bottom: 3px solid var(--cor-borda);
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .conteiner-cabecalho {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logotipo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--tamanho-fonte-titulo);
+      font-weight: bold;
+      color: var(--cor-principal);
+    }
+
+    .barra-acessibilidade {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .botao-acessibilidade {
+      background-color: var(--cor-cartao);
+      color: var(--cor-texto);
+      border: 2px solid var(--cor-borda);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .botao-acessibilidade:hover, .botao-acessibilidade:focus {
+      outline: 3px solid var(--cor-principal);
+    }
+
+    .botao-acessibilidade.ativo {
+      background-color: var(--cor-principal);
+      color: #ffffff;
+    }
+
+    body.alto-contraste .botao-acessibilidade.ativo {
+      color: #000000;
+    }
+
+    /* ESTRUTURA DE LAYOUT */
+    main {
+      max-width: 800px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    section {
+      margin-bottom: 35px;
+    }
+
+    .cabecalho-secao {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--cor-principal);
+    }
+
+    .titulo-secao {
+      font-size: var(--tamanho-fonte-titulo);
+      color: var(--cor-principal);
+    }
+
+    .cartao {
+      background-color: var(--cor-cartao);
+      border: 2px solid var(--cor-borda);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    /* BANNER PRINCIPAL (INÍCIO) */
+    .painel-inicio {
+      background-color: var(--cor-cartao);
+      border: 3px solid var(--cor-principal);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    .titulo-painel {
+      font-size: var(--tamanho-fonte-titulo);
+      margin-bottom: 10px;
+      color: var(--cor-principal);
+    }
+
+    .botao-ajuda {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background-color: var(--cor-alerta);
+      color: #ffffff;
+      border: none;
+      padding: 18px 20px;
+      border-radius: 16px;
+      font-size: var(--tamanho-fonte-subtitulo);
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-decoration: none;
+    }
+
+    .botao-ajuda:hover, .botao-ajuda:focus {
+      opacity: 0.9;
+      outline: 4px solid var(--cor-principal);
+    }
+
+    body.alto-contraste .botao-ajuda {
+      background-color: var(--cor-alerta);
+      color: #ffffff;
+      border: 2px solid #ffffff;
+    }
+
+    /* DICAS CURTAS */
+    .cartao-dica {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      border-left: 8px solid var(--cor-principal);
+    }
+
+    .numero-dica {
+      background-color: var(--cor-principal);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    body.alto-contraste .numero-dica {
+      color: black;
+    }
+
+    /* DIREITOS NA INTERNET */
+    .lista-direitos {
+      list-style: none;
+    }
+
+    .item-direito {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--cor-borda);
+    }
+
+    .item-direito:last-child {
+      border-bottom: none;
+    }
+
+    .item-direito strong {
+      color: var(--cor-principal);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ATITUDES SUSPEITAS / COMO SABER SE É GOLPE */
+    .cartao-alerta {
+      border-left: 8px solid var(--cor-alerta);
+      background-color: var(--cor-alerta-fundo);
+    }
+
+    .lista-alertas {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .lista-alertas li {
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+
+    /* MODAL DE AJUDA RÁPIDA */
+    .fundo-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 20px;
+    }
+
+    .conteudo-modal {
+      background-color: var(--cor-cartao);
+      border: 3px solid var(--cor-borda);
+      border-radius: 20px;
+      padding: 25px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .titulo-modal {
+      color: var(--cor-alerta);
+      font-size: var(--tamanho-fonte-titulo);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .opcao-telefone {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border: 2px solid var(--cor-borda);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      background-color: var(--cor-cartao);
+    }
+
+    .botao-ligar {
+      background-color: var(--cor-sucesso);
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    body.alto-contraste .botao-ligar {
+      background-color: var(--cor-principal);
+      color: black;
+    }
+
+    .botao-fechar {
+      width: 100%;
+      background-color: var(--cor-cartao);
+      color: var(--cor-texto);
+      border: 2px solid var(--cor-borda);
+      padding: 12px;
+      border-radius: 12px;
+      font-size: var(--tamanho-fonte-base);
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    /* UTILITÁRIOS */
+    .oculto {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="conteiner-cabecalho">
+      <div class="logotipo">
+        🛡️ Conecta Segura
+      </div>
+      <div class="barra-acessibilidade" aria-label="Ferramentas de acessibilidade">
+        <button id="botao-audio" class="botao-acessibilidade" title="Ouvir conteúdo">
+          🔊 Ouvir
+        </button>
+        <button id="botao-fonte-normal" class="botao-acessibilidade ativo" title="Tamanho normal">A</button>
+        <button id="botao-fonte-grande" class="botao-acessibilidade" title="Aumentar texto">A+</button>
+        <button id="botao-fonte-muito-grande" class="botao-acessibilidade" title="Texto muito grande">A++</button>
+        <button id="botao-contraste" class="botao-acessibilidade" title="Alto contraste">🌗 Contraste</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="conteudo-principal">
+
+    <!-- SEÇÃO 1: INÍCIO (BANNER + BOTÃO DE AJUDA) -->
+    <section id="inicio">
+      <div class="painel-inicio">
+        <h1 class="titulo-painel">Bem-vindo(a) ao Conecta Segura</h1>
+        <p>
+          Este aplicativo foi feito para ajudar você a navegar na internet e usar o celular com segurança e tranquilidade.
+        </p>
+
+        <!-- Botão de Ajuda Funcional -->
+        <button class="botao-ajuda" onclick="abrirModalAjuda()">
+          <span>🆘 Preciso de Ajuda / Caí em Golpe</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: DICAS IMPORTANTES -->
+    <section id="dicas">
+      <div class="cabecalho-secao">
+        <span style="font-size: 30px;">💡</span>
+        <h2 class="titulo-secao">Dicas Importantes</h2>
+      </div>
+
+      <div class="cartao cartao-dica">
+        <div class="numero-dica">1</div>
+        <div>
+          <h3 style="margin-bottom: 5px;">Desconfie de Pedidos de Dinheiro Urgentes</h3>
+          <p>Se um parente pedir dinheiro por mensagem usando um número novo, ligue para o número antigo dele antes de transferir qualquer valor.</p>
+        </div>
+      </div>
+
+      <div class="cartao cartao-dica">
+        <div class="numero-dica">2</div>
+        <div>
+          <h3 style="margin-bottom: 5px;">Nunca Passe Senhas por Telefone</h3>
+          <p>O seu banco jamais ligará pedindo senhas, códigos recebidos por SMS ou para buscar o seu cartão em casa.</p>
+        </div>
+      </div>
+
+      <div class="cartao cartao-dica">
+        <div class="numero-dica">3</div>
+        <div>
+          <h3 style="margin-bottom: 5px;">Não Clique em Links Desconhecidos</h3>
+          <p>Evite abrir links recebidos por mensagem ou SMS dizendo que você ganhou prêmios ou que sua conta bancária foi bloqueada.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: DIREITOS NA INTERNET -->
+    <section id="direitos">
+      <div class="cabecalho-secao">
+        <span style="font-size: 30px;">⚖️</span>
+        <h2 class="titulo-secao">Seus Direitos na Internet</h2>
+      </div>
+
+      <div class="cartao">
+        <p style="margin-bottom: 15px;">
+          Assim como no dia a dia físico, você possui direitos protegidos por lei ao usar a internet e aplicativos no Brasil:
+        </p>
+
+        <ul class="lista-direitos">
+          <li class="item-direito">
+            <strong>🔒 Direito à Privacidade e Proteção de Dados</strong>
+            Nenhuma empresa ou pessoa pode usar seu CPF, telefone ou fotos sem a sua autorização expressa.
+          </li>
+          <li class="item-direito">
+            <strong>🛡️ Direito à Segurança Bancária</strong>
+            Os bancos têm a obrigação de proteger seu dinheiro contra fraudes e oferecer canais claros para cancelamento de transações suspeitas.
+          </li>
+          <li class="item-direito">
+            <strong>📞 Direito a Atendimento Humano e Acessível</strong>
+            Empresas e serviços públicos devem disponibilizar atendimento por telefone ou presencial com linguagem simples e clara.
+          </li>
+          <li class="item-direito">
+            <strong>📄 Direito ao Reembolso em Compras Online</strong>
+            Em qualquer compra feita pela internet, você tem até 7 dias após receber o produto para desistir e receber seu dinheiro de volta.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: COMO SABER SE ESTOU CAINDO EM UM GOLPE? -->
+    <section id="como-saber">
+      <div class="cabecalho-secao">
+        <span style="font-size: 30px;">🚨</span>
+        <h2 class="titulo-secao">Como saber se estou caindo em um golpe?</h2>
+      </div>
+
+      <div class="cartao cartao-alerta">
+        <p>Fique atento! Se você identificar alguma destas <strong>atitudes suspeitas</strong>, pare imediatamente:</p>
+
+        <ul class="lista-alertas">
+          <li><strong>Muitíssima urgência:</strong> O golpista tenta fazer você agir rápido, dizendo que "sua conta será bloqueada hoje" ou que "é um caso de vida ou morte".</li>
+          <li><strong>Pedido de segredo:</strong> A pessoa pede para você não contar para seus filhos, netos ou gerentes do banco.</li>
+          <li><strong>Pedido de senha ou código SMS:</strong> Qualquer solicitação para informar senhas bancárias ou números que chegaram por mensagem.</li>
+          <li><strong>Ofertas boas demais:</strong> Promessas de investimentos com rendimento muito alto, prêmios de sorteios que você não participou ou produtos muito baratos.</li>
+          <li><strong>Instalação de aplicativos:</strong> Pedidos para baixar programas que dão "acesso remoto" ao seu celular.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DE AJUDA RÁPIDA -->
+  <div id="modal-ajuda" class="fundo-modal oculto" role="dialog" aria-labelledby="titulo-modal">
+    <div class="conteudo-modal">
+      <h2 id="titulo-modal" class="titulo-modal">🆘 Ajuda de Emergência</h2>
+      <p style="margin-bottom: 15px;">Se você desconfia de uma fraude ou já realizou uma transferência, aja rapidamente:</p>
+
+      <div class="opcao-telefone">
+        <div>
+          <strong>Ligue para seu Banco</strong>
+          <p style="font-size: 14px;">Telefone no verso do cartão</p>
+        </div>
+        <span style="font-weight: bold;">Passo 1</span>
+      </div>
+
+      <div class="opcao-telefone">
+        <div>
+          <strong>Polícia Militar</strong>
+          <p style="font-size: 14px;">Emergência</p>
+        </div>
+        <a href="tel:190" class="botao-ligar">Ligar 190</a>
+      </div>
+
+      <div class="opcao-telefone">
+        <div>
+          <strong>Disque Denúncia</strong>
+          <p style="font-size: 14px;">Orientação e denúncias</p>
+        </div>
+        <a href="tel:181" class="botao-ligar">Ligar 181</a>
+      </div>
+
+      <div style="background-color: rgba(37, 99, 235, 0.1); padding: 12px; border-radius: 10px; margin-top: 15px;">
+        <strong>📌 Dica:</strong> Avise imediatamente um parente de confiança para acompanhar você na resolução.
+      </div>
+
+      <button class="botao-fechar" onclick="fecharModalAjuda()">Fechar Janela</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    /* MODAL DE AJUDA */
+    function abrirModalAjuda() {
+      document.getElementById('modal-ajuda').classList.remove('oculto');
+    }
+
+    function fecharModalAjuda() {
+      document.getElementById('modal-ajuda').classList.add('oculto');
+    }
+
+    /* CONTROLE DE TAMANHO DE FONTE */
+    const raiz = document.documentElement;
+    const botaoFonteNormal = document.getElementById('botao-fonte-normal');
+    const botaoFonteGrande = document.getElementById('botao-fonte-grande');
+    const botaoFonteMuitoGrande = document.getElementById('botao-fonte-muito-grande');
+
+    function definirBotaoFonteAtivo(botaoAtivo) {
+      [botaoFonteNormal, botaoFonteGrande, botaoFonteMuitoGrande].forEach(btn => btn.classList.remove('ativo'));
+      botaoAtivo.classList.add('ativo');
+    }
+
+    botaoFonteNormal.addEventListener('click', () => {
+      raiz.style.setProperty('--tamanho-fonte-base', '18px');
+      raiz.style.setProperty('--tamanho-fonte-titulo', '28px');
+      raiz.style.setProperty('--tamanho-fonte-subtitulo', '22px');
+      definirBotaoFonteAtivo(botaoFonteNormal);
+    });
+
+    botaoFonteGrande.addEventListener('click', () => {
+      raiz.style.setProperty('--tamanho-fonte-base', '22px');
+      raiz.style.setProperty('--tamanho-fonte-titulo', '32px');
+      raiz.style.setProperty('--tamanho-fonte-subtitulo', '26px');
+      definirBotaoFonteAtivo(botaoFonteGrande);
+    });
+
+    botaoFonteMuitoGrande.addEventListener('click', () => {
+      raiz.style.setProperty('--tamanho-fonte-base', '26px');
+      raiz.style.setProperty('--tamanho-fonte-titulo', '36px');
+      raiz.style.setProperty('--tamanho-fonte-subtitulo', '30px');
+      definirBotaoFonteAtivo(botaoFonteMuitoGrande);
+    });
+
+    /* CONTROLE DE ALTO CONTRASTE */
+    const botaoContraste = document.getElementById('botao-contraste');
+    botaoContraste.addEventListener('click', () => {
+      document.body.classList.toggle('alto-contraste');
+    });
+
+    /* LEITOR DE VOZ (SINTETIZADOR DE FALA) */
+    const botaoAudio = document.getElementById('botao-audio');
+    let falando = false;
+
+    function falarTexto(texto) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        if (falando) {
+          falando = false;
+          botaoAudio.classList.remove('ativo');
+          return;
+        }
+
+        const pronunciacao = new SpeechSynthesisUtterance(texto);
+        pronunciacao.lang = 'pt-BR';
+        pronunciacao.rate = 0.85; // Fala pausada para facilitar a compreensão
+
+        pronunciacao.onend = () => {
+          falando = false;
+          botaoAudio.classList.remove('ativo');
+        };
+
+        pronunciacao.onerror = () => {
+          falando = false;
+          botaoAudio.classList.remove('ativo');
+        };
+
+        falando = true;
+        botaoAudio.classList.add('ativo');
+        window.speechSynthesis.speak(pronunciacao);
+      } else {
+        alert('Seu navegador não suporta a funcionalidade de leitura de voz.');
+      }
+    }
+
+    botaoAudio.addEventListener('click', () => {
+      const conteudoPrincipal = document.getElementById('conteudo-principal');
+      if (conteudoPrincipal) {
+        falarTexto(conteudoPrincipal.innerText);
+      }
+    });
+  </script>
+</body>
+</html>
